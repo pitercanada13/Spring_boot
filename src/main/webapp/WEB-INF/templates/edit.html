@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit User</title>
+</head>
+<body>
+
+<h2>Edit User</h2>
+
+<form th:action="@{/admin/update}" th:object="${user}" method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    Email: <input type="text" th:field="*{email}" /><br/>
+    First Name: <input type="text" th:field="*{firstName}" /><br/>
+    Last Name: <input type="text" th:field="*{lastName}" /><br/>
+    Password: <input type="text" th:field="*{password}" /><br/>
+
+    <h3>Roles:</h3>
+    <div th:each="role : ${allRoles}">
+        <input type="checkbox"
+               th:value="${role.id}"
+               th:field="*{roles}" />
+        <span th:text="${role.name}"></span>
+    </div>
+
+    <button type="submit">Update</button>
+</form>
+
+<!--<form th:action="@{/admin/update}" th:object="${user}" method="post">-->
+
+<!--    <input type="hidden" th:field="*{id}" />-->
+
+<!--    Email: <input type="text" th:field="*{email}" /><br/>-->
+<!--    First Name: <input type="text" th:field="*{firstName}" /><br/>-->
+<!--    Last Name: <input type="text" th:field="*{lastName}" /><br/>-->
+<!--    Password: <input type="text" th:field="*{password}" /><br/>-->
+
+<!--    <button type="submit">Update</button>-->
+
+<!--</form>-->
+
+</body>
+</html>
+

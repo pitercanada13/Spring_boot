@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- 🔌 Подключение к БД -->
+        <property name="hibernate.connection.driver_class">
+            org.postgresql.Driver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:postgresql://localhost:5432/postgres
+        </property>
+
+        <property name="hibernate.connection.username">
+            postgres
+        </property>
+
+        <property name="hibernate.connection.password">
+            1
+        </property>
+
+        <!-- ⚙️ Диалект -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.PostgreSQLDialect
+        </property>
+
+        <!-- 🧠 Hibernate настройки -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- 🔥 АВТО-СОЗДАНИЕ ТАБЛИЦ -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- 📦 Маппинги сущностей -->
+        <mapping class="hiber.model.User"/>
+        <mapping class="hiber.model.Role"/>
+        <mapping class="hiber.model.Car"/>
+
+    </session-factory>
+</hibernate-configuration>

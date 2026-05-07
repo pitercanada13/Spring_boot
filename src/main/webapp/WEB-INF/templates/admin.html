@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin</title>
+</head>
+<body>
+
+<h2>Users list</h2>
+
+<table border="1">
+    <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Car</th>
+    </tr>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.car != null ? user.car.model : 'NO CAR'}"></td>
+    </tr>
+
+<!--    <tr th:each="u : ${users}">-->
+<!--        <td th:text="${u.email}"></td>-->
+<!--        <td th:text="${u.name}"></td>-->
+<!--        <td th:text="${u.car.model} + ' ' + ${u.car.series}"></td>-->
+<!--    </tr>-->
+
+</table>
+
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Admin</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h2>Admin panel</h2>-->
+
+<!--&lt;!&ndash; Logout &ndash;&gt;-->
+<!--<form th:action="@{/logout}" method="post">-->
+<!--    <button type="submit">Logout</button>-->
+<!--</form>-->
+
+<!--<h3>All users</h3>-->
+
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Email</th>-->
+<!--        <th>Action</th>-->
+<!--    </tr>-->
+
+<!--    <tr th:each="u : ${users}">-->
+<!--        <td th:text="${u.id}"></td>-->
+<!--        <td th:text="${u.firstName}"></td>-->
+<!--        <td th:text="${u.email}"></td>-->
+<!--        <td>-->
+<!--            <form th:action="@{/admin/delete}" method="post">-->
+<!--                <input type="hidden" name="id" th:value="${u.id}"/>-->
+<!--                <button type="submit">Delete</button>-->
+<!--            </form>-->
+<!--        </td>-->
+
+<!--        <td>-->
+<!--            <a th:href="@{/admin/edit/{id}(id=${user.id})}">Edit</a>-->
+<!--            |-->
+<!--            <a th:href="@{/admin/delete/{id}(id=${user.id})}">Delete</a>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+
+<!--<h3>Add user</h3>-->
+
+<!--<form th:action="@{/admin/add}" method="post">-->
+<!--    <input name="firstName" placeholder="Name"/>-->
+<!--    <input name="lastName" placeholder="Last name"/>-->
+<!--    <input name="email" placeholder="Email"/>-->
+<!--    <input name="password" placeholder="Password"/>-->
+<!--    <button type="submit">Add</button>-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+
